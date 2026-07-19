@@ -23,12 +23,18 @@ export default function CartSidebar({ cart, isOpen, onClose, onChangeQty, onRemo
           <ul className="cart-list" id="cartList">
             {cart.map(item => (
               <li className="cart-item" key={item.id}>
-                <img
-                  className="cart-item-img"
-                  src={item.img}
-                  alt={item.name}
-                  onError={e => { e.target.style.background = 'var(--bg3)'; e.target.src = ''; }}
-                />
+                {item.img ? (
+                  <img
+                    className="cart-item-img"
+                    src={item.img}
+                    alt={item.name}
+                    onError={e => { e.target.style.display = 'none'; }}
+                  />
+                ) : (
+                  <div className="cart-item-img-placeholder" style={{ background: 'var(--bg3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', width: '50px', height: '50px', borderRadius: '8px', marginRight: '12px', flexShrink: 0 }}>
+                    📄
+                  </div>
+                )}
                 <div className="cart-item-info">
                   <div className="cart-item-name">{item.name}</div>
                   <div className="cart-item-price">{formatPrice(item.price)} × {item.qty} = {formatPrice(item.price * item.qty)}</div>

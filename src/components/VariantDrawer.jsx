@@ -87,7 +87,7 @@ export default function VariantDrawer({
                     className="drawer-var-img"
                     src={item.img}
                     alt={item.name}
-                    onError={e => { e.target.style.background = 'var(--bg3)'; e.target.src = ''; }}
+                    onError={e => { e.target.style.display = 'none'; }}
                   />
                   <div className="drawer-var-info">
                     <span className="drawer-var-brand">{item.brand}</span>

@@ -220,7 +220,7 @@ export default function ContactSection({ formSuccess, onSubmit }) {
             <button type="submit" className="btn btn-primary full-width" id="contactSubmitBtn">Send Message</button>
             
             <div className={`form-success ${formSuccess ? '' : 'hidden'}`} id="formSuccess">
-              Message sent successfully! We\'ll get back to you soon.
+              Message sent successfully! We'll get back to you soon.
             </div>
           </form>
         </div>

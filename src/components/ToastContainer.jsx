@@ -16,7 +16,7 @@ function Toast({ toast }) {
           <span>{toast.msg}</span>
         </>
       ) : (
-        <span>{toast.type === 'success' ? '✅' : '❌'}&nbsp; {toast.msg}</span>
+        <span>{toast.type === 'success' ? '✅' : toast.type === 'info' ? 'ℹ️' : '❌'}&nbsp; {toast.msg}</span>
       )}
     </div>
   );

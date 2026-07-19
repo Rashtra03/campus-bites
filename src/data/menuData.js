@@ -25,13 +25,13 @@ export const ITEM_VARIANTS = {
     items: [
       { id: 'cd_coke_250', brand: 'Coca-Cola', name: 'Coca-Cola 250ml', price: 25, mrp: 30, img: 'coca-cola.jpg' },
       { id: 'cd_coke_500', brand: 'Coca-Cola', name: 'Coca-Cola 500ml', price: 45, mrp: 50, img: 'coca-cola.jpg' },
-      { id: 'cd_sprite_500', brand: 'Sprite', name: 'Sprite 500ml', price: 45, mrp: 50, img: 'Sprite.jpg' },
+      { id: 'cd_sprite_500', brand: 'Sprite', name: 'Sprite 500ml', price: 45, mrp: 50, img: 'sprite.jpg' },
       { id: 'cd_lahori_zeera_250', brand: 'lahori', name: 'lahori zeera 250ml', price: 10, mrp: 15, img: 'lahori zeera.jpg' },
       { id: 'cd_maaza_250', brand: 'maaza', name: 'maaza 250ml', price: 10, mrp: 15, img: 'maaza.jpg' },
-      { id: 'cd_capma_250', brand: 'campa', name: 'campa 250ml', price: 10, mrp: 15, img: 'campa.jpg' },
-      { id: 'cd_campa_500', brand: 'campa', name: 'campa 500ml', price: 20, mrp: 25, img: 'campa.jpg' },
-      { id: 'cd_fanta_250', brand: 'Fanta', name: 'Fanta Orange 250ml', price: 25, mrp: 30, img: 'Fanta.jpg' },
-      { id: 'cd_7up_250', brand: '7UP', name: '7UP 250ml', price: 25, mrp: 30, img: '7UP.jpg' }
+      { id: 'cd_campa_250', brand: 'campa', name: 'campa 250ml', price: 10, mrp: 15, img: 'Campa.jpg' },
+      { id: 'cd_campa_500', brand: 'campa', name: 'campa 500ml', price: 20, mrp: 25, img: 'Campa.jpg' },
+      { id: 'cd_fanta_250', brand: 'Fanta', name: 'Fanta Orange 250ml', price: 25, mrp: 30, img: 'fanta.jpg' },
+      { id: 'cd_7up_250', brand: '7UP', name: '7UP 250ml', price: 25, mrp: 30, img: '7up.jpg' }
     ]
   },
   14: {
@@ -57,8 +57,8 @@ export const ITEM_VARIANTS = {
     brands: ['All', "Lay's", 'Kurkure', 'Panjabi tadka'],
     items: [
       { id: 'ch_Lays_10', brand: "Lay's", name: 'Classic Salted ₹10', price: 10, mrp: 12, img: 'Lays.jpg' },
-      { id: 'ch_Kurkure_10', brand: 'Kurkure', name: 'Masala Munch ₹10', price: 10, mrp: 12, img: 'kurkure.jpg' },
-      { id: 'ch_Panjabi_tadka_10', brand: 'Panjabi tadka', name: 'Panjabi tadka ₹10', price: 10, mrp: 12, img: 'panjabi tadka.jpg' }
+      { id: 'ch_Kurkure_10', brand: 'Kurkure', name: 'Masala Munch ₹10', price: 10, mrp: 12, img: 'Kurkure.jpg' },
+      { id: 'ch_Panjabi_tadka_10', brand: 'Panjabi tadka', name: 'Panjabi tadka ₹10', price: 10, mrp: 12, img: 'Panjabi tadka.jpg' }
     ]
   },
   16: {
@@ -85,13 +85,13 @@ export const ITEM_VARIANTS = {
     desc: 'Fresh and Healthy Delicacies',
     brands: ['All', 'Sandwich', 'Poha', 'Paratha', 'Beverages'],
     items: [
-      { id: 'bf_veg_sandwich', brand: 'SUNDAY', name: 'Veg Sandwich', price: 50, mrp: 60, img: 'BREAKFAST.jpg' },
-      { id: 'bf_grilled_sandwich', brand: 'MONDAY', name: 'Grilled Sandwich', price: 70, mrp: 80, img: 'BREAKFAST.jpg' },
-      { id: 'bf_poha', brand: 'TUESDAY', name: 'Poha', price: 40, mrp: 50, img: 'BREAKFAST.jpg' },
-      { id: 'bf_upma', brand: 'WEDNESDAY', name: 'Upma', price: 45, mrp: 55, img: 'BREAKFAST.jpg' },
-      { id: 'bf_aloo_paratha', brand: 'THURSDAY', name: 'Aloo Paratha', price: 60, mrp: 70, img: 'BREAKFAST.jpg' },
-      { id: 'bf_paneer_paratha', brand: 'FRIDAY', name: 'Paneer Paratha', price: 80, mrp: 90, img: 'BREAKFAST.jpg' },
-      { id: 'bf_masala_chai', brand: 'SATURDAY', name: 'Masala Chai', price: 20, mrp: 25, img: 'BREAKFAST.jpg' }
+      { id: 'bf_veg_sandwich', brand: 'SUNDAY', name: 'Veg Sandwich', price: 50, mrp: 60, img: 'breakfast.jpg' },
+      { id: 'bf_grilled_sandwich', brand: 'MONDAY', name: 'Grilled Sandwich', price: 70, mrp: 80, img: 'breakfast.jpg' },
+      { id: 'bf_poha', brand: 'TUESDAY', name: 'Poha', price: 40, mrp: 50, img: 'breakfast.jpg' },
+      { id: 'bf_upma', brand: 'WEDNESDAY', name: 'Upma', price: 45, mrp: 55, img: 'breakfast.jpg' },
+      { id: 'bf_aloo_paratha', brand: 'THURSDAY', name: 'Aloo Paratha', price: 60, mrp: 70, img: 'breakfast.jpg' },
+      { id: 'bf_paneer_paratha', brand: 'FRIDAY', name: 'Paneer Paratha', price: 80, mrp: 90, img: 'breakfast.jpg' },
+      { id: 'bf_masala_chai', brand: 'SATURDAY', name: 'Masala Chai', price: 20, mrp: 25, img: 'breakfast.jpg' }
     ]
   }
 };
