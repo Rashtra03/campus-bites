@@ -35,22 +35,23 @@ export default function MyOrdersModal({ isOpen, onClose, orders = [], currentUse
             </div>
           ) : (
             userOrders.map(order => {
-              const { width, activeStep } = getStepProgress(order.status);
-              const isCancelled = order.status.toLowerCase() === 'cancelled';
+              const currentStatus = order.status || 'Pending';
+              const { width, activeStep } = getStepProgress(currentStatus);
+              const isCancelled = currentStatus.toLowerCase() === 'cancelled';
 
               return (
                 <div className="order-history-card" key={order.id}>
                   <div className="order-card-header">
                     <div className="order-card-meta">
                       <h4>
-                        Order #{order.id.slice(-6).toUpperCase()}
-                        <span className={`order-status-badge ${order.status.toLowerCase()}`}>
-                          {order.status}
+                        Order #{String(order.id).slice(-6).toUpperCase()}
+                        <span className={`order-status-badge ${currentStatus.toLowerCase()}`}>
+                          {currentStatus}
                         </span>
                       </h4>
-                      <p>{new Date(order.timestamp).toLocaleString()}</p>
+                      <p>{new Date(order.timestamp || Date.now()).toLocaleString()}</p>
                     </div>
-                    {order.status.toLowerCase() === 'pending' && (
+                    {currentStatus.toLowerCase() === 'pending' && (
                       <button
                         className="btn-cancel-order"
                         onClick={() => onCancelOrder(order.id)}

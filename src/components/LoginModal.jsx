@@ -104,7 +104,7 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }) {
 
         {error && <div className="auth-error-msg">{error}</div>}
 
-        {tab === 'login' ? (
+        {tab === 'login' && (
           <form onSubmit={handleLoginSubmit} className="auth-form">
             <div className="auth-form-group">
               <label>Email or Phone Number</label>
@@ -126,12 +126,24 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }) {
                 required
               />
             </div>
+            <div style={{ textAlign: 'right', marginTop: '-10px', marginBottom: '15px' }}>
+              <button 
+                type="button" 
+                className="btn btn-ghost" 
+                style={{ padding: '0', fontSize: '13px', color: 'var(--primary)', height: 'auto', background: 'transparent' }}
+                onClick={() => { setTab('forgot-password'); setError(''); }}
+              >
+                Forgot Password?
+              </button>
+            </div>
             <button type="submit" className="btn btn-primary full-width">Login</button>
             <div className="auth-helper-text">
               Tip: Use <strong>admin@campusbites.com</strong> or <strong>9999999999</strong> and password <strong>admin</strong> for Admin access.
             </div>
           </form>
-        ) : (
+        )}
+
+        {tab === 'register' && (
           <form onSubmit={handleRegisterSubmit} className="auth-form">
             <div className="auth-form-group">
               <label>Full Name</label>
@@ -184,6 +196,29 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }) {
               />
             </div>
             <button type="submit" className="btn btn-primary full-width">Register</button>
+          </form>
+        )}
+
+        {tab === 'forgot-password' && (
+          <form onSubmit={e => { e.preventDefault(); setError('Password reset link sent (simulated).'); }} className="auth-form">
+            <h3 style={{ marginBottom: '15px', fontSize: '18px' }}>Reset Password</h3>
+            <div className="auth-form-group">
+              <label>Email Address</label>
+              <input 
+                type="email" 
+                placeholder="Enter your registered email" 
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-primary full-width">Send Reset Link</button>
+            <button 
+              type="button" 
+              className="btn btn-ghost full-width" 
+              style={{ marginTop: '10px' }}
+              onClick={() => { setTab('login'); setError(''); }}
+            >
+              Back to Login
+            </button>
           </form>
         )}
       </div>

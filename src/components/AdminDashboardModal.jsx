@@ -35,7 +35,7 @@ export default function AdminDashboardModal({
   );
 
   const filteredOrders = orders.filter(order => {
-    const matchesFilter = orderFilter === 'All' || order.status.toLowerCase() === orderFilter.toLowerCase();
+    const matchesFilter = orderFilter === 'All' || (order.status || 'Pending').toLowerCase() === orderFilter.toLowerCase();
     const idStr = order.id.slice(-6).toUpperCase();
     const matchesSearch = 
       idStr.includes(orderSearch.toUpperCase()) || 
@@ -256,7 +256,7 @@ export default function AdminDashboardModal({
                         className={`admin-filter-btn ${orderFilter === filter ? 'active' : ''}`}
                         onClick={() => setOrderFilter(filter)}
                       >
-                        {filter} ({filter === 'All' ? orders.length : orders.filter(o => o.status.toLowerCase() === filter.toLowerCase()).length})
+                        {filter} ({filter === 'All' ? orders.length : orders.filter(o => (o.status || 'Pending').toLowerCase() === filter.toLowerCase()).length})
                       </button>
                     ))}
                   </div>
@@ -288,13 +288,14 @@ export default function AdminDashboardModal({
                                 </span>
                               </div>
                               
-                              <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                <span className="admin-order-summary-price">{formatPrice(order.totalPrice)}</span>
-                                <span className={`order-status-badge ${order.status.toLowerCase()}`}>
-                                  {order.status}
+                              <div className="order-card-meta">
+                                <h4>
+                                  Order #{String(order.id).slice(-6).toUpperCase()}
+                                </h4>
+                                <span className={`order-status-badge ${(order.status || 'Pending').toLowerCase()}`}>
+                                  {order.status || 'Pending'}
                                 </span>
-                                <span>{isExpanded ? '▲' : '▼'}</span>
-                              </div>
+                              </div>  <span>{isExpanded ? '▲' : '▼'}</span>
                             </div>
 
                             {isExpanded && (
@@ -347,7 +348,7 @@ export default function AdminDashboardModal({
                                 </div>
 
                                 <div className="admin-order-actions-row">
-                                  {order.status.toLowerCase() === 'pending' && (
+                                  {(order.status || 'Pending').toLowerCase() === 'pending' && (
                                     <>
                                       <button 
                                         className="btn-admin-order-action cancel"
@@ -364,7 +365,7 @@ export default function AdminDashboardModal({
                                     </>
                                   )}
 
-                                  {order.status.toLowerCase() === 'preparing' && (
+                                  {(order.status || 'Pending').toLowerCase() === 'preparing' && (
                                     <>
                                       <button 
                                         className="btn-admin-order-action cancel"
@@ -381,7 +382,7 @@ export default function AdminDashboardModal({
                                     </>
                                   )}
 
-                                  {order.status.toLowerCase() === 'ready' && (
+                                  {(order.status || 'Pending').toLowerCase() === 'ready' && (
                                     <button 
                                       className="btn-admin-order-action complete"
                                       onClick={() => onUpdateOrderStatus(order.id, 'Completed')}
@@ -390,7 +391,7 @@ export default function AdminDashboardModal({
                                     </button>
                                   )}
 
-                                  {(order.status.toLowerCase() === 'completed' || order.status.toLowerCase() === 'cancelled') && (
+                                  {((order.status || 'Pending').toLowerCase() === 'completed' || (order.status || 'Pending').toLowerCase() === 'cancelled') && (
                                     <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>
                                       Order processed and archived.
                                     </span>

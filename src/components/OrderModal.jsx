@@ -4,7 +4,7 @@ import { formatPrice } from '../data/menuData.js';
 export default function OrderModal({ isOpen, onClose, cart = [], onConfirm }) {
   const [step, setStep] = useState(1);
   const [orderType, setOrderType] = useState('pickup');
-  const [hostel, setHostel] = useState('Boys Hostel');
+  const [hostel, setHostel] = useState('Academic Block');
   const [roomNumber, setRoomNumber] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('upi');
   
@@ -21,7 +21,7 @@ export default function OrderModal({ isOpen, onClose, cart = [], onConfirm }) {
       
       setStep(1);
       setOrderType('pickup');
-      setHostel('Boys Hostel');
+      setHostel('Academic Block');
       setRoomNumber('');
       setPaymentMethod('upi');
       setPaymentStatus('pending');
@@ -146,21 +146,27 @@ export default function OrderModal({ isOpen, onClose, cart = [], onConfirm }) {
                   className={`fulfillment-btn ${orderType === 'delivery' ? 'active' : ''}`}
                   onClick={() => setOrderType('delivery')}
                 >
-                  🚀 Hostel Delivery
+                  🚀 Delivery Location
                 </button>
               </div>
 
               {orderType === 'delivery' && (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <div className="x-form-group">
-                    <label>Select Hostel</label>
+                    <label>Select Location</label>
                     <select
                       className="x-select"
                       value={hostel}
                       onChange={e => setHostel(e.target.value)}
                     >
-                      <option value="Boys Hostel">Boys Hostel</option>
-                      <option value="Girls Hostel">Girls Hostel</option>
+                      <option value="Academic Block">Academic Block</option>
+                      <option value="Library">Library</option>
+                      <option value="Auditorium">Auditorium</option>
+                      <option value="Boy's Hostel">Boy's Hostel</option>
+                      <option value="Girl's Hostel">Girl's Hostel</option>
+                      <option value="Type-A">Type-A</option>
+                      <option value="Type-B">Type-B</option>
+                      <option value="Type-C">Type-C</option>
                     </select>
                   </div>
                   
@@ -287,7 +293,7 @@ export default function OrderModal({ isOpen, onClose, cart = [], onConfirm }) {
                 </div>
                 <div className="order-success-meta-row">
                   <span>Fulfillment:</span>
-                  <strong>{orderType === 'delivery' ? `Hostel Delivery (${hostel}, Room ${roomNumber})` : 'Self Counter Pickup'}</strong>
+                  <strong>{orderType === 'delivery' ? `Delivery Location (${hostel}, Room ${roomNumber})` : 'Self Counter Pickup'}</strong>
                 </div>
                 <div className="order-success-meta-row">
                   <span>Est. Time:</span>
